@@ -1,0 +1,607 @@
+/*Anton*/
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/*Cinzel*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+/*Montserrat*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F9F7F2;
+    z-index: 1;
+}
+
+/* Estilo de Texto */
+h1{
+    font-family: "Anton", sans-serif;
+}
+
+h2{
+    font-family: "Cinzel", serif;
+    font-size: 30px;
+    color: #A60E2E;
+}
+
+h3{
+    font-family: "Montserrat", sans-serif; 
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+}
+
+p, span, a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    color: #4A4A4A;
+}
+
+hr{
+    border: 1px solid #E7C88C;
+    max-width: 400px;
+    width: 100%
+}
+
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Estilo de boton flotante */
+.btn-flotante{
+    position: fixed;
+    left: 90vw;
+    top: 88vh;
+    width: 60px;
+    height: 60px;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #dabb7d;
+    color: #fff;
+    font-size: 30px; 
+}
+
+/* Menu */
+header{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #A60E2E;
+    padding: 20px 0 ;
+    align-items: center;
+}
+
+nav ul{
+    margin: 0 0px;
+}
+
+ul li{
+    list-style: none;
+}
+
+nav li a{ 
+    background-color: #A60E2E;
+    color: #E7C88C;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.1s ease-in-out;
+}
+
+nav li a:hover{
+    background-color: #940c2a;
+}
+
+nav li ul{
+    display: none;
+    position: absolute;
+    min-width: 160px;
+}
+
+nav li:hover > ul{
+    display: block;
+    
+}
+
+.menu-list li ul li{
+    position: relative;
+}
+
+.menu-list li ul li ul{
+    right: -160px;
+    top: 0px;
+}
+
+.menu-list > li{
+    float: left;
+}
+header > img{
+    width: 80px;
+    height: 80px;
+}
+
+/* Login escondido */
+.login-hidden{
+    width: 100%;
+    margin-top: 35px;
+    padding-left: 30px;
+    display: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+}
+
+.login-hidden a{
+    list-style: none;
+    text-decoration: none;
+}
+
+.logo-hidden{
+    background-color: #A60E2E;
+    border-radius: 100%;
+    position: fixed;
+    top: 7px;
+    left: 7px;
+    padding: 5px;
+    width: 60px;
+    z-index: 99;
+}
+
+.hidden-content img{
+    width: 80px;
+}
+
+.login-hidden label{
+    cursor: pointer;
+}
+
+.hidden-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    z-index: 100;
+    background-color: #940c2a;
+    position: fixed;
+    overflow-y: hidden;
+    transform: translateY(100%);
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.8s ease-in, opacity 1s ease-in, visibility 1s;
+}
+
+.hidden-content h3{
+    color: #E7C88C !important;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+}
+
+input{
+    display: none;
+}
+
+.btn-enter:checked ~ .hidden-content{
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out, visibility 0s;
+}
+
+.hidden-content h3, .hidden-content a, .hidden-content label{
+    color: white;
+}
+
+.btn-x{
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+/* Retratos de Reyes */
+.retratos-wrapper{
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.retratos-wrapper img{
+    max-width: 300px;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+   
+}
+
+.retratos-contenedor{
+    max-width: 800px;
+    width: 100%;
+    column-count: 3;
+    column-gap: 7px;
+}
+
+.retratos-item{
+    position: relative;
+}
+
+.retratos-item img, .retratos-item h3{
+    transition: all 1s ease-in-out;
+}
+
+.retratos-item img{
+    opacity: 0.7;
+}
+
+.retratos-item img:hover {
+    opacity: 1;
+}
+
+.retratos-item img:hover ~ h3{
+    display: flex;
+}
+
+.retratos-item h3{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-bottom: 2px solid #E7C88C;
+    max-width: 90%;
+    overflow: hidden;
+}
+
+.retratos-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 99%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.retratos-item h3{
+    position: absolute;
+    z-index: 2;
+}
+
+.img-familia img{
+    height: 193px;
+}
+/* Carrusel de imagenes */
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.main-title {
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.carousel {
+    position: relative;
+    background: #f2f0ed;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+.carousel__slides {
+    display: flex;
+    width: 600%;
+    height: 500px;
+    animation: autoSlide 15s infinite linear;
+}
+
+.carousel__slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.slide__caption {
+    position: absolute;
+    bottom: 70px;
+    background: #a60e2e;
+    font-family: Montserrat;
+    color: #ffeecb;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.carousel__thumbnails {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(166, 14, 46, 0.2);
+}
+
+
+@keyframes autoSlide {
+    0%,      13.33%  { transform: translateX(0%);       }
+    16.66%,  29.99%  { transform: translateX(-16.666%); }
+    33.33%,  46.66%  { transform: translateX(-33.333%); }
+    50%,     63.33%  { transform: translateX(-50%);     }
+    66.66%,  79.99%  { transform: translateX(-66.666%); }
+    83.33%,  96.66%  { transform: translateX(-83.333%); }
+    99.99%           { transform: translateX(-100%);    }
+    100%             { transform: translateX(0%);       }
+}
+
+@keyframes dotHighlight {
+    0%,     16.66%  { background: #a60e2e; transform: scale(1.3); }
+    19.99%, 100%    { background: rgba(166, 14, 46, 0.2); transform: scale(1); }
+}
+
+#dot-1 { animation: dotHighlight 15s infinite  0s;     } 
+#dot-2 { animation: dotHighlight 15s infinite -12.5s;  } 
+#dot-3 { animation: dotHighlight 15s infinite -10s;    } 
+#dot-4 { animation: dotHighlight 15s infinite -7.5s;   } 
+#dot-5 { animation: dotHighlight 15s infinite -5s;     } 
+#dot-6 { animation: dotHighlight 15s infinite -2.5s;   }
+
+.carousel:hover .carousel__slides,
+.carousel:hover .dot {
+    animation-play-state: paused;
+}
+
+/* Arquitecturas y Sedes */
+.arquitectura-wrapper{
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.arquitectura-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.arquitectura-img, .arquitectura-img img{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    max-height: 300px;
+    height: 100%;
+}
+
+.arquitectura-img img{
+    width: 550px;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Animaciones de Imagenes */
+.arquitectura-img{
+    animation-name: aparecer;
+    animation-timeline: view();
+    animation-range: entry 5% cover 65%;
+}
+
+@keyframes aparecer {
+    from{
+        opacity: 0; scale: 10%;
+    }
+    to {
+        opacity: 1; scale: 100%;
+    }
+}
+
+.arquitectura-img2 img{
+    width: 250px;
+    height: 147px;
+}
+
+.img-item{
+    position: relative;
+}
+
+.img-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+    pointer-events: none; 
+    z-index: 1; 
+}
+
+.img-item h3{
+    position: absolute;
+    z-index: 2;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-bottom: 2px solid #E7C88C;
+}
+
+
+/* Footer */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 20px #E7C88C solid ;
+    width: 100%;
+    background-color: #A60E2E;
+    margin-top: 100px;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+footer div img{
+    width: 240px;
+    height: 240px;
+}
+
+footer div{
+    width: 30%;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 200px;
+}
+
+footer div h2{
+    color: #E7C88C;
+}
+
+footer div a{
+    text-decoration: none;
+    color: #E7C88C;
+    transition: color 0.3s ease-in;
+}
+
+footer div a:hover{
+    color: #cfb47d;
+}
+
+@media (max-width: 767px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        margin-top: 60px;
+        gap: 20px;
+        border-right: none;
+        border-top: 8px #E7C88C solid;
+    }
+    footer div {
+        width: 90%;
+        min-height: auto;
+    }
+    footer div img {
+        display: none;
+    }
+    .btn-flotante {
+        left: 80vw;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    p, span, a {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+
+  /* Hace aparecer el menu toggle */
+  .login-hidden{
+        display: flex;
+    }
+
+/* Hace desaparecer el menu para computadoras*/
+    header, .header-img, .btn-flotante{
+        display: none;
+    }
+
+ /* La Galeria se pasa a una sola columna */
+.retratos-contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    column-count: 1;
+    gap: 10px;
+}
+
+/* Las imagenes de Arquitecturas y Sedes se vuelven mas pequeña */
+.arquitectura-img img{
+    width: 300px;
+    height: 147px;
+}
+
+h2{
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1024px){
+    footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+        border-right: none;
+        border-top: 10px #E7C88C solid;
+    }
+    footer div {
+        width: 70%;
+        align-items: center;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+    p, span, a {
+        font-size: 18px;
+    }
+}
