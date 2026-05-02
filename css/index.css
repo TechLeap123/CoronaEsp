@@ -16,13 +16,14 @@ h2 {
     font-family: "Cinzel", serif;
     font-size: 30px;
     color: #A60E2E;
+    font-weight: bold !important;
 }
 
 h3 {
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     color: #fff;
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 
 
@@ -64,10 +65,16 @@ header {
 }
 
 nav ul {
-    margin: 0 0px;
+    margin: 0;
+    padding: 0;
 }
 
 ul li {
+    list-style: none;
+}
+
+nav li {
+    position: relative;
     list-style: none;
 }
 
@@ -77,6 +84,7 @@ nav li a {
     text-decoration: none;
     padding: 10px 20px;
     display: block;
+    white-space: nowrap;
     transition: background-color 0.1s ease-in-out;
 }
 
@@ -87,28 +95,34 @@ nav li a:hover {
 nav li ul {
     display: none;
     position: absolute;
-    min-width: 160px;
+    min-width: 180px;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    background-color: #A60E2E; 
 }
 
-nav li:hover>ul {
+nav li ul li ul {
+    top: 0;
+    left: 100%;
+    background-color: #A60E2E; 
+}
+
+nav li:hover > ul {
     display: block;
-
 }
 
-.menu-list li ul li {
-    position: relative;
-}
-
-.menu-list li ul li ul {
-    right: -160px;
-    top: 0px;
-}
-
-.menu-list>li {
+.menu-list > li {
     float: left;
 }
 
-header>img {
+.menu-list::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+header > img {
     width: 80px;
     height: 80px;
 }
@@ -241,6 +255,11 @@ input {
     object-fit: cover;
 }
 
+.intro h2{
+    border-bottom: 2px solid #cfb47d;
+    max-width: 600px;
+}
+
 .intro div {
     width: 45%;
     display: flex;
@@ -263,6 +282,7 @@ input {
 .intro div h2 {
     width: 100%;
     text-align: center;
+    font-weight: bolder !important;
 }
 
 .intro div p::first-letter {
@@ -280,18 +300,22 @@ input {
 }
 
 .h2-seccion2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
     width: 100%;
     text-align: center;
+    font-weight: bolder !important;
+    border-bottom: 2px solid #dabb7d;
+    margin: 10px;
 }
 
-.hr-seccion2 {
-    width: 30%;
-    border: 1px #E7C88C solid;
+.h2-hitos{
+    max-width: 420px;
+    width: 100%;
 }
 
-.hr-pequeño {
-    width: 21%;
-}
 
 .familia-real-actual {
     width: 100%;
@@ -307,6 +331,10 @@ input {
     display: flex;
     justify-content: right;
     align-items: center;
+}
+
+.reyactual-div h3, .hija h3, .esposa h3{
+    border-bottom: 2px solid #dabb7d;
 }
 
 .reyactual-div div {
@@ -386,7 +414,7 @@ input {
 
 .hitos-padre hr {
     width: 100px;
-    border: 1px #E7C88C solid;
+    border: 2px #E7C88C solid !important;
 }
 
 .hitos-padre div {
@@ -394,6 +422,10 @@ input {
     border: none;
     height: 200px;
     border-radius: 100%;
+}
+
+.hitos-padre-text h2{
+    font-weight: bolder !important;
 }
 
 .hito1 {
@@ -508,7 +540,7 @@ input {
 
 .titulo-seccion {
     font-weight: 800;
-    border-bottom: 2px solid #E7C88C;
+    border-bottom: 2px solid #dabb7d;
     display: inline-block;
     padding-bottom: 5px;
     margin-bottom: 25px;
@@ -792,14 +824,6 @@ footer div a:hover {
     .hito-mobile-text p {
         text-align: justify;
         font-size: 17px;
-    }
-
-    .hr-seccion2 {
-        width: 30%;
-    }
-
-    .hr-pequeño {
-        width: 38%;
     }
 
     footer {

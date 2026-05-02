@@ -109,7 +109,7 @@ nav li ul{
 
 nav li:hover > ul{
     display: block;
-    
+    z-index: 999 ;
 }
 
 .menu-list li ul li{
@@ -286,8 +286,8 @@ input{
 .img-familia img{
     height: 193px;
 }
-/* Carrusel de imagenes */
 
+/* Carrusel de imagenes */
 .container {
     width: 100%;
     max-width: 900px;
@@ -304,26 +304,38 @@ input{
     font-weight: 800;
     margin-bottom: 30px;
     text-transform: uppercase;
+    border-bottom: 2px solid #cfb47d;
+}
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.carousel {
+.carousel-container {
     position: relative;
+    width: 100%;
+    overflow: hidden;
     background: #f2f0ed;
     border-radius: 15px;
-    overflow: hidden;
     box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+/* Ocultar Inputs de Radio */
+input[type="radio"] {
+    display: none;
 }
 
 .carousel__slides {
     display: flex;
-    width: 600%;
+    width: 600%; 
     height: 500px;
-    animation: autoSlide 15s infinite linear;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .carousel__slide {
-    width: 100%;
-    height: 100%;
+    width: 16.666%; 
     position: relative;
     display: flex;
     justify-content: center;
@@ -336,18 +348,46 @@ input{
     object-fit: contain;
 }
 
-.slide__caption {
-    position: absolute;
-    bottom: 70px;
-    background: #a60e2e;
-    font-family: Montserrat;
-    color: #ffeecb;
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-weight: 700;
-    z-index: 10;
+/* Logica de movimento  */
+#s1:checked ~ .carousel .carousel__slides { transform: translateX(0%); }
+#s2:checked ~ .carousel .carousel__slides { transform: translateX(-16.666%); }
+#s3:checked ~ .carousel .carousel__slides { transform: translateX(-33.333%); }
+#s4:checked ~ .carousel .carousel__slides { transform: translateX(-50%); }
+#s5:checked ~ .carousel .carousel__slides { transform: translateX(-66.666%); }
+#s6:checked ~ .carousel .carousel__slides { transform: translateX(-83.333%); }
+
+/* Flechas */
+.arrow-set {
+    display: none; 
 }
 
+#s1:checked ~ .arrows #arrows-1,
+#s2:checked ~ .arrows #arrows-2,
+#s3:checked ~ .arrows #arrows-3,
+#s4:checked ~ .arrows #arrows-4,
+#s5:checked ~ .arrows #arrows-5,
+#s6:checked ~ .arrows #arrows-6 {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(166, 14, 46, 0.7);
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 100%;
+    z-index: 40;
+    font-size: 20px;
+    user-select: none;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Puntos (Dots) */
 .carousel__thumbnails {
     position: absolute;
     bottom: 25px;
@@ -363,37 +403,36 @@ input{
     height: 12px;
     border-radius: 50%;
     background: rgba(166, 14, 46, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-
-@keyframes autoSlide {
-    0%,      13.33%  { transform: translateX(0%);       }
-    16.66%,  29.99%  { transform: translateX(-16.666%); }
-    33.33%,  46.66%  { transform: translateX(-33.333%); }
-    50%,     63.33%  { transform: translateX(-50%);     }
-    66.66%,  79.99%  { transform: translateX(-66.666%); }
-    83.33%,  96.66%  { transform: translateX(-83.333%); }
-    99.99%           { transform: translateX(-100%);    }
-    100%             { transform: translateX(0%);       }
+/* Resaltar punto activo */
+#s1:checked ~ .carousel__thumbnails #dot-1,
+#s2:checked ~ .carousel__thumbnails #dot-2,
+#s3:checked ~ .carousel__thumbnails #dot-3,
+#s4:checked ~ .carousel__thumbnails #dot-4,
+#s5:checked ~ .carousel__thumbnails #dot-5,
+#s6:checked ~ .carousel__thumbnails #dot-6 {
+    background: #a60e2e;
+    transform: scale(1.3);
 }
 
-@keyframes dotHighlight {
-    0%,     16.66%  { background: #a60e2e; transform: scale(1.3); }
-    19.99%, 100%    { background: rgba(166, 14, 46, 0.2); transform: scale(1); }
+.slide__caption {
+    position: absolute;
+    bottom: 70px;
+    background: #a60e2e;
+    
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
 }
 
-#dot-1 { animation: dotHighlight 15s infinite  0s;     } 
-#dot-2 { animation: dotHighlight 15s infinite -12.5s;  } 
-#dot-3 { animation: dotHighlight 15s infinite -10s;    } 
-#dot-4 { animation: dotHighlight 15s infinite -7.5s;   } 
-#dot-5 { animation: dotHighlight 15s infinite -5s;     } 
-#dot-6 { animation: dotHighlight 15s infinite -2.5s;   }
-
-.carousel:hover .carousel__slides,
-.carousel:hover .dot {
-    animation-play-state: paused;
+.slide__caption p{
+    color: #ffeecb;
+    font-family: Montserrat;
+    font-size: 15px;
 }
-
 /* Arquitecturas y Sedes */
 .arquitectura-wrapper{
     margin-top: 60px;

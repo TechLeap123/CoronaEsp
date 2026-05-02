@@ -103,46 +103,83 @@
     </section>
 
     <br><br><br>
-     <div class="container">
-        <h2 class="main-title">Catálogo de Armería Histórica</h2>
+  <div class="container">
+    <h2 class="main-title">Catálogo de Armería Históricos</h2>
+    
+    <div class="carousel-container">
+        <input type="radio" name="slider" id="s1" checked>
+        <input type="radio" name="slider" id="s2">
+        <input type="radio" name="slider" id="s3">
+        <input type="radio" name="slider" id="s4">
+        <input type="radio" name="slider" id="s5">
+        <input type="radio" name="slider" id="s6">
+
         <div class="carousel">
             <div class="carousel__slides">
                 <div class="carousel__slide">
                     <img src="img/carrusel/espada1.jpg" alt="Espada Tizona del Cid">
-                    <div class="slide__caption">Espada Tizona del Cid</div>
+                    <div class="slide__caption"><p>Espada Tizona del Cid</p></div>
                 </div>
                 <div class="carousel__slide">
                     <img src="img/carrusel/espada2.jpg" alt="Espada de Carlos V">
-                    <div class="slide__caption">Espada de Carlos V</div>
+                    <div class="slide__caption"><p>Espada de Carlos V</p></div>
                 </div>
                 <div class="carousel__slide">
                     <img src="img/carrusel/armadura1.webp" alt="Armadura de Torneo">
-                    <div class="slide__caption">Armadura de Torneo</div>
+                    <div class="slide__caption"><p>Armadura de Torneo</p></div>
                 </div>
                 <div class="carousel__slide">
                     <img src="img/carrusel/sala1.jpg" alt="Sala de Armas Medieval">
-                    <div class="slide__caption">Sala de Armas Medieval</div>
+                    <div class="slide__caption"><p>Sala de Armas Medieval</p></div>
                 </div>
                 <div class="carousel__slide">
                     <img src="img/carrusel/ballesta1.webp" alt="Ballesta del Siglo XV">
-                    <div class="slide__caption">Ballesta del Siglo XV</div>
+                    <div class="slide__caption"><p>Ballesta del Siglo XV</p></div>
                 </div>
                 <div class="carousel__slide">
                     <img src="img/carrusel/cañón1.jpg" alt="Cañón Antiguo de Museo">
-                    <div class="slide__caption">Cañón Antiguo de Museo</div>
+                    <div class="slide__caption"><p>Cañón Antiguo de Museo</p></div>
                 </div>
             </div>
+        </div>
 
-            <div class="carousel__thumbnails">
-                <div class="dot" id="dot-1"></div>
-                <div class="dot" id="dot-2"></div>
-                <div class="dot" id="dot-3"></div>
-                <div class="dot" id="dot-4"></div>
-                <div class="dot" id="dot-5"></div>
-                <div class="dot" id="dot-6"></div>
+        <div class="arrows">
+            <div class="arrow-set" id="arrows-1">
+                <label for="s6" class="prev">&#10094;</label>
+                <label for="s2" class="next">&#10095;</label>
+            </div>
+            <div class="arrow-set" id="arrows-2">
+                <label for="s1" class="prev">&#10094;</label>
+                <label for="s3" class="next">&#10095;</label>
+            </div>
+            <div class="arrow-set" id="arrows-3">
+                <label for="s2" class="prev">&#10094;</label>
+                <label for="s4" class="next">&#10095;</label>
+            </div>
+            <div class="arrow-set" id="arrows-4">
+                <label for="s3" class="prev">&#10094;</label>
+                <label for="s5" class="next">&#10095;</label>
+            </div>
+            <div class="arrow-set" id="arrows-5">
+                <label for="s4" class="prev">&#10094;</label>
+                <label for="s6" class="next">&#10095;</label>
+            </div>
+            <div class="arrow-set" id="arrows-6">
+                <label for="s5" class="prev">&#10094;</label>
+                <label for="s1" class="next">&#10095;</label>
             </div>
         </div>
+
+        <div class="carousel__thumbnails">
+            <label for="s1" class="dot" id="dot-1"></label>
+            <label for="s2" class="dot" id="dot-2"></label>
+            <label for="s3" class="dot" id="dot-3"></label>
+            <label for="s4" class="dot" id="dot-4"></label>
+            <label for="s5" class="dot" id="dot-5"></label>
+            <label for="s6" class="dot" id="dot-6"></label>
+        </div>
     </div>
+</div>
 
     <section class="arquitectura-wrapper">
         <div class="titulo">
